@@ -1,0 +1,62 @@
+[
+  {
+    "EventId": "evt-001",
+    "EventTimestampUtc": "2023-11-14 01:30:00 UTC",
+    "EventType": "TransactionCompleted",
+    "Payload": "{\"transactionId\":\"txn-001\",\"accountId\":\"acc-001\",\"amount\":250.00,\"currency\":\"KES\",\"channel\":\"mobile\",\"status\":\"success\",\"reference\":\"REF001\",\"categories\":[{\"categoryId\":\"cat-001\",\"categoryName\":\"Food\",\"amount\":150.00,\"percentage\":60.0},{\"categoryId\":\"cat-002\",\"categoryName\":\"Transport\",\"amount\":100.00,\"percentage\":40.0}]}"
+  },
+  {
+    "EventId": "evt-002",
+    "EventTimestampUtc": "2023-11-14 03:45:00 UTC",
+    "EventType": "AccountSnapshot",
+    "Payload": "{\"accountId\":\"acc-001\",\"accountType\":\"savings\",\"balance\":15000.00,\"currency\":\"KES\",\"isActive\":true,\"metrics\":{\"totalDeposits\":50000.00,\"totalWithdrawals\":35000.00,\"transactionCount\":42}}"
+  },
+  {
+    "EventId": "evt-003",
+    "EventTimestampUtc": "2023-11-14 06:00:00 UTC",
+    "EventType": "TransactionCompleted",
+    "Payload": "{\"transactionId\":\"txn-002\",\"accountId\":\"acc-002\",\"amount\":1200.00,\"currency\":\"KES\",\"channel\":\"web\",\"status\":\"success\",\"reference\":\"REF002\",\"categories\":[{\"categoryId\":\"cat-003\",\"categoryName\":\"Utilities\",\"amount\":800.00,\"percentage\":66.7},{\"categoryId\":\"cat-004\",\"categoryName\":\"Rent\",\"amount\":400.00,\"percentage\":33.3}]}"
+  },
+  {
+    "EventId": "evt-004",
+    "EventTimestampUtc": "2023-11-14 08:15:00 UTC",
+    "EventType": "CategorySpend",
+    "Payload": "{\"accountId\":\"acc-001\",\"periodStart\":\"2023-11-01\",\"periodEnd\":\"2023-11-14\",\"totalSpend\":5200.00,\"currency\":\"KES\",\"breakdown\":[{\"categoryId\":\"cat-001\",\"categoryName\":\"Food\",\"amount\":1800.00,\"transactionCount\":12,\"isOverBudget\":false},{\"categoryId\":\"cat-002\",\"categoryName\":\"Transport\",\"amount\":950.00,\"transactionCount\":8,\"isOverBudget\":false},{\"categoryId\":\"cat-003\",\"categoryName\":\"Utilities\",\"amount\":1200.00,\"transactionCount\":3,\"isOverBudget\":true},{\"categoryId\":\"cat-004\",\"categoryName\":\"Rent\",\"amount\":1250.00,\"transactionCount\":1,\"isOverBudget\":false}]}"
+  },
+  {
+    "EventId": "evt-005",
+    "EventTimestampUtc": "2023-11-15 00:10:00 UTC",
+    "EventType": "TransactionCompleted",
+    "Payload": "{\"transactionId\":\"txn-003\",\"accountId\":\"acc-003\",\"amount\":450.00,\"currency\":\"KES\",\"channel\":\"ussd\",\"status\":\"failed\",\"reference\":\"REF003\",\"categories\":[{\"categoryId\":\"cat-001\",\"categoryName\":\"Food\",\"amount\":450.00,\"percentage\":100.0}]}"
+  },
+  {
+    "EventId": "evt-006",
+    "EventTimestampUtc": "2023-11-15 01:55:00 UTC",
+    "EventType": "AccountSnapshot",
+    "Payload": "{\"accountId\":\"acc-002\",\"accountType\":\"current\",\"balance\":82000.00,\"currency\":\"KES\",\"isActive\":true,\"metrics\":{\"totalDeposits\":200000.00,\"totalWithdrawals\":118000.00,\"transactionCount\":134}}"
+  },
+  {
+    "EventId": "evt-007",
+    "EventTimestampUtc": "2023-11-15 02:30:00 UTC",
+    "EventType": "CategorySpend",
+    "Payload": "{\"accountId\":\"acc-002\",\"periodStart\":\"2023-11-01\",\"periodEnd\":\"2023-11-15\",\"totalSpend\":18500.00,\"currency\":\"KES\",\"breakdown\":[{\"categoryId\":\"cat-003\",\"categoryName\":\"Utilities\",\"amount\":8000.00,\"transactionCount\":5,\"isOverBudget\":true},{\"categoryId\":\"cat-004\",\"categoryName\":\"Rent\",\"amount\":10500.00,\"transactionCount\":2,\"isOverBudget\":false}]}"
+  },
+  {
+    "EventId": "evt-008",
+    "EventTimestampUtc": "2023-11-15 23:50:00 UTC",
+    "EventType": "TransactionCompleted",
+    "Payload": "{\"transactionId\":\"txn-004\",\"accountId\":\"acc-001\",\"amount\":3200.00,\"currency\":\"KES\",\"channel\":\"mobile\",\"status\":\"success\",\"reference\":\"REF004\",\"categories\":[{\"categoryId\":\"cat-005\",\"categoryName\":\"Shopping\",\"amount\":2000.00,\"percentage\":62.5},{\"categoryId\":\"cat-001\",\"categoryName\":\"Food\",\"amount\":800.00,\"percentage\":25.0},{\"categoryId\":\"cat-002\",\"categoryName\":\"Transport\",\"amount\":400.00,\"percentage\":12.5}]}"
+  },
+  {
+    "EventId": "evt-009",
+    "EventTimestampUtc": "2023-11-16 00:05:00 UTC",
+    "EventType": "AccountSnapshot",
+    "Payload": "{\"accountId\":\"acc-003\",\"accountType\":\"savings\",\"balance\":3200.00,\"currency\":\"KES\",\"isActive\":false,\"metrics\":{\"totalDeposits\":10000.00,\"totalWithdrawals\":6800.00,\"transactionCount\":15}}"
+  },
+  {
+    "EventId": "evt-010",
+    "EventTimestampUtc": "2023-11-16 01:20:00 UTC",
+    "EventType": "CategorySpend",
+    "Payload": "{\"accountId\":\"acc-003\",\"periodStart\":\"2023-11-01\",\"periodEnd\":\"2023-11-16\",\"totalSpend\":2800.00,\"currency\":\"KES\",\"breakdown\":[{\"categoryId\":\"cat-001\",\"categoryName\":\"Food\",\"amount\":1800.00,\"transactionCount\":6,\"isOverBudget\":false},{\"categoryId\":\"cat-002\",\"categoryName\":\"Transport\",\"amount\":1000.00,\"transactionCount\":4,\"isOverBudget\":true}]}"
+  }
+]
