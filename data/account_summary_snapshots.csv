@@ -1,0 +1,4 @@
+"AccountId","AccountType","Balance","Currency","isActive","EnqueuedTimeUtc","TotalDeposits","TotalWithdrawals","TransactionCount"
+"acc-001","savings",15000.0,"KES",1,"14/11/2023",50000.0,35000.0,42
+"acc-002","current",82000.0,"KES",1,"15/11/2023",200000.0,118000.0,134
+"acc-003","savings",3200.0,"KES",0,"16/11/2023",10000.0,6800.0,15
