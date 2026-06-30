@@ -4,11 +4,11 @@ def convert_time(utc_string):
     # Parse the UTC string into a datetime object
     dt = datetime.strptime(utc_string, "%Y-%m-%d %H:%M:%S UTC")
 
-    # Subtract 3 hours to convert UTC to São Paulo (UTC-3)
-    dt_sp = dt - timedelta(hours=3)
+    # Add 3 hours to convert UTC to Nairobi (UTC+3)
+    dt_nairobi = dt + timedelta(hours=3)
 
     # Return only the date formatted as DD/MM/YYYY
-    return dt_sp.strftime("%d/%m/%Y")
+    return dt_nairobi.strftime("%d/%m/%Y")
 
 def transform(records):
     # Three buckets: One per output csv
@@ -35,8 +35,7 @@ def transform(records):
 
                     'categoryId': category['categoryId'],
                     'categoryName': category['categoryName'],
-                    'Transport': category['Transport'],
-                    'Amount': category['amount'],
+                    'CategoryAmount': category['amount'],
                     'Percentage': category['percentage'],
                     'EnqueuedTimeUtc': enqueued_time
                 })
@@ -47,7 +46,7 @@ def transform(records):
                 'AccountType': payload['accountType'],
                 'Balance': payload['balance'],
                 'Currency': payload['currency'],
-                'isActive': payload['isActive'],
+                'isActive': int(payload['isActive']),
                 'EnqueuedTimeUtc': enqueued_time,
 
                 'TotalDeposits': metrics['totalDeposits'],
@@ -55,20 +54,21 @@ def transform(records):
                 'TransactionCount': metrics['transactionCount']
             })
         elif event == 'CategorySpend':
-            breakdown = payload['breakdown']
-            category_spend_records.append({
-                'AccountId': payload['accountId'],
-                'PeriodStart': payload['periodStart'],
-                'PeriodEnd': payload['periodEnd'],
-                'TotalSpend': payload['totalSpend'],
-                'Currency': payload['currency'],
-                'CategoryId': breakdown['categoryId'],
-                'CategoryName': breakdown['categoryName'],
-                'Amount': breakdown['amount'],
-                'TransactionCount': breakdown['transactionCount'],
-                'isOverBudget': breakdown['isOverBudget'],
-                'EnqueuedTimeUtc': enqueued_time
-            })
+            for breakdown in payload['breakdown']:
+                category_spend_records.append({
+                    'AccountId': payload['accountId'],
+                    'PeriodStart': payload['periodStart'],
+                    'PeriodEnd': payload['periodEnd'],
+                    'TotalSpend': payload['totalSpend'],
+                    'Currency': payload['currency'],
+
+                    'CategoryId': breakdown['categoryId'],
+                    'CategoryName': breakdown['categoryName'],
+                    'Amount': breakdown['amount'],
+                    'TransactionCount': breakdown['transactionCount'],
+                    'isOverBudget': int(breakdown['isOverBudget']),
+                    'EnqueuedTimeUtc': enqueued_time
+                })
 
     return transactions_records, account_summary_snapshots_records, category_spend_records
 
