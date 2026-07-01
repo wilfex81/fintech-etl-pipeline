@@ -216,3 +216,29 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# dbt core
+target/
+dbt_packages/
+logs/
+
+# Legacy dbt packages (pre-v1)
+dbt_modules/
+
+# dbt Cloud / IDE specific
+.dbtignore
+.user.yml
+dbt.log
+query_log.sql
+log_output/
+
+# Python environments (if using venv/conda locally)
+venv/
+.env
+__pycache__/
+*.py[cod]
+
+# OS files
+.DS_Store
+Thumbs.db   
+   
